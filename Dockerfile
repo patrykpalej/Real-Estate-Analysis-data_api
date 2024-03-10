@@ -4,6 +4,7 @@ WORKDIR /usr/app/src/
 
 COPY ./Pipfile /usr/app
 COPY ./Pipfile.lock /usr/app
+COPY ./.env /usr/app
 
 RUN pip install --upgrade pip && \
     pip install pipenv && \
