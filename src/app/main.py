@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.routers.otodom import router as otodom_router
 from app.routers.domiporta import router as domiporta_router
+from app.middlewares import log_requests
 
 
 app = FastAPI(
@@ -12,3 +13,5 @@ app = FastAPI(
 
 app.include_router(otodom_router)
 app.include_router(domiporta_router)
+
+app.middleware("http")(log_requests)
